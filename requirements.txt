@@ -1,0 +1,5 @@
+ogpu==0.2.0.6
+transformers==4.51.3
+diffusers==0.33.1
+accelerate==1.6.0
+hf-xet==1.1.3

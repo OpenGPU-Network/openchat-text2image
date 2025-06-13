@@ -1,0 +1,27 @@
+services:
+
+  openchat-t2i-service:
+    image: opengpunetwork/openchat-text2image:latest@sha256:fc08804fce35a5dcc1bc57a670570608806bf275e7f0c5e206eaf5d189f3599f
+    ports:
+      - "${PORT}:5555"
+    extra_hosts: 
+      - "host.docker.internal:host-gateway"
+    environment:
+      - CALLBACK_URL=${CALLBACK_URL}
+    volumes:
+      - huggingface_cache:/root/.cache/huggingface
+    networks:
+      - app_network
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+networks:
+  app_network:
+    driver: bridge
+
+volumes:
+  huggingface_cache:

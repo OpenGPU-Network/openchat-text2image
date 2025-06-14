@@ -1,7 +1,7 @@
 services:
 
   openchat-t2i-service:
-    image: opengpunetwork/openchat-text2image:latest@sha256:fc08804fce35a5dcc1bc57a670570608806bf275e7f0c5e206eaf5d189f3599f
+    image: opengpunetwork/openchat-text2image:latest@sha256:544f44d0fc29b227c6ef06b9fd6c46d8459f47de5339b2df60412b9df002b328
     ports:
       - "${PORT}:5555"
     extra_hosts: 
